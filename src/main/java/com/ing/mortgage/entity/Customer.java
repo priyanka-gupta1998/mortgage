@@ -1,16 +1,13 @@
 package com.ing.mortgage.entity;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 @Entity
 public class Customer {
@@ -37,9 +34,7 @@ public class Customer {
 	private String city;
 	
 	private String customerType;
-	 @OneToMany(cascade={CascadeType.ALL})
-	 @JoinColumn(name="loanId")
-	 private List<Loan> loan;
+	
 	 @OneToOne(cascade={CascadeType.ALL})
 	 @JoinColumn(name="customerCredentialId")
 	 private CustomerCredentials customerCredentials;
@@ -111,12 +106,7 @@ public class Customer {
 	public void setCustomerType(String customerType) {
 		this.customerType = customerType;
 	}
-	public List<Loan> getLoan() {
-		return loan;
-	}
-	public void setLoan(List<Loan> loan) {
-		this.loan = loan;
-	}
+
 	public CustomerCredentials getCustomerCredentials() {
 		return customerCredentials;
 	}
